@@ -1,0 +1,117 @@
+.Header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Layer 1 logic */
+
+#layer-1 .bubble{
+    background-color: black;
+    transition: .9s;
+}
+
+#layer-1 .bubble:nth-of-type(1){
+    left: -20%;
+    top: 85%;
+}
+
+.active #layer-1 .bubble:nth-of-type(1){
+    left: 55%;
+}
+
+#layer-1 .bubble:nth-of-type(2){
+    left: -20%;
+    top: 10%;
+}
+
+.active #layer-1 .bubble:nth-of-type(2){
+    left: 15%;
+}
+
+/* Layer 2 logic */
+
+#layer-2 .bubble{
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: .6s;
+}
+
+#layer-2 .bubble:nth-of-type(1){
+    left: -20%;
+    top: 15%;
+}
+
+.active #layer-2 .bubble:nth-of-type(1){
+    left: 50%;
+}
+
+#layer-2 .bubble:nth-of-type(2){
+    left: -200%;
+    top: 25%;
+}
+
+.active #layer-2 .bubble:nth-of-type(2){
+    left: 90%;
+}
+
+/* Layer 3 logic */
+
+#layer-3 .bubble{
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: .3s;
+}
+
+#layer-3 .bubble:nth-of-type(1){
+    left: -20%;
+    top: 15%;
+}
+
+.active #layer-3 .bubble:nth-of-type(1){
+    left: 70%;
+}
+
+#layer-3 .bubble:nth-of-type(2){
+    left: -20%;
+    top: 90%;
+}
+
+.active #layer-3 .bubble:nth-of-type(2){
+    left: 10%;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    left: -5%;
+}
+
+.bubble.s {
+    height: 3vh;
+    width: 3vh;
+}
+
+.bubble.m {
+    height: 8vh;
+    width: 8vh;
+}
+
+.bubble.g {
+    height: 15vh;
+    width: 15vh;
+}
+
+.name {
+    position: absolute;
+    top: 40%;
+    left: -30%;
+    height: fit-content;
+    width: fit-content;
+    transition: .5s;
+}
+
+.active .name {
+    left: 25%;
+}
