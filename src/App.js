@@ -14,13 +14,13 @@ function App() {
       pageY = e.clientY - window.innerHeight/2;
 
       for(let layer of layerOne) {
-        layer.style.transform = 'translateX(-' + (50 + pageX/200) + '%) translateY(-' + (50 + pageY/200) + '%)';
+        layer.style.transform = 'translateX(' + (pageX/200) + '%) translateY(' + (pageY/200) + '%)';
       }
       for(let layer of layerTwo) {
-        layer.style.transform = 'translateX(-' + (50 + pageX/500) + '%) translateY(-' + (50 + pageY/500) +  '%)';
+        layer.style.transform = 'translateX(' + (pageX/500) + '%) translateY(' + (pageY/500) +  '%)';
       }
       for(let layer of layerThree) {
-        layer.style.transform = 'translateX(-' + (50 + pageX/1000) + '%) translateY(-' + (50 + pageY/1000) +  '%)';
+        layer.style.transform = 'translateX(' + (pageX/1000) + '%) translateY(' + (pageY/1000) +  '%)';
       }
 
 
