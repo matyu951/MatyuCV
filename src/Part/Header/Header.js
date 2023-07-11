@@ -10,6 +10,7 @@ function Header() {
             // You'd want an exit condition here
             setActive(true)
           }, 700);
+          console.log('now')
     }, [])
 
   return (
@@ -19,8 +20,12 @@ function Header() {
             <div className='bubble s' />
         </div>
         <div id="layer-2" >
-            <div className='bubble g' />
-            <div className='bubble m' />
+            <div className='oeuil'>
+                <div className='popiere'>
+                    <div className='pupille' id='pupille' />
+                </div>
+            </div>
+            <div className='bubble m'/>
         </div>
         <div id="layer-3" >
             <div className='bubble s' />

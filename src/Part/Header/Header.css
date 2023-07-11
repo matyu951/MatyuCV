@@ -11,7 +11,7 @@
 
 #layer-1 .bubble{
     background-color: black;
-    transition: .9s;
+    transition: left .9s;
 }
 
 #layer-1 .bubble:nth-of-type(1){
@@ -36,16 +36,7 @@
 
 #layer-2 .bubble{
     background-color: rgba(0, 0, 0, 0.7);
-    transition: .6s;
-}
-
-#layer-2 .bubble:nth-of-type(1){
-    left: -20%;
-    top: 15%;
-}
-
-.active #layer-2 .bubble:nth-of-type(1){
-    left: 50%;
+    transition: left .6s;
 }
 
 #layer-2 .bubble:nth-of-type(2){
@@ -61,7 +52,7 @@
 
 #layer-3 .bubble{
     background-color: rgba(0, 0, 0, 0.4);
-    transition: .3s;
+    transition: left .3s;
 }
 
 #layer-3 .bubble:nth-of-type(1){
@@ -109,9 +100,166 @@
     left: -30%;
     height: fit-content;
     width: fit-content;
-    transition: .5s;
+    transition: left .5s;
 }
 
 .active .name {
-    left: 25%;
+    left: 15%;
+}
+
+.oeuil {
+    position: absolute;
+    display: flex;
+    height: 11vh;
+    width: 15vh;
+    border-radius: 100% / 100%;
+    background-color: brown;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#layer-2 .oeuil{
+    left: -20%;
+    top: 15%;
+}
+
+.active #layer-2 .oeuil{
+    left: 50%;
+}
+
+.oeuil .popiere {
+    display: flex;
+    height: 7vh;
+    width: 15vh;
+    border-radius: 100% / 100%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: .5s;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: cligne 100s;
+    animation-iteration-count: infinite;
+}
+
+.oeuil .popiere .pupille {
+    background-color: black;
+    height: 15vh;
+    width: 15vh;
+    border-radius: 50%;
+    box-shadow: white 0.3px 0.3px 10px 19px inset;
+}
+
+
+/* très moche mais ça passe */
+@keyframes cligne {
+    1%{
+        height: 7vh;
+    }
+    1.5% {
+        height: 0vh;
+    }
+    2% {
+        height: 7vh;
+    }
+    9%{
+        height: 7vh;
+    }
+    9.5% {
+        height: 0vh;
+    }
+    10% {
+        height: 7vh;
+    }
+    15%{
+        height: 7vh;
+    }
+    15.5% {
+        height: 0vh;
+    }
+    16% {
+        height: 7vh;
+    }
+    23%{
+        height: 7vh;
+    }
+    23.5% {
+        height: 0vh;
+    }
+    24% {
+        height: 7vh;
+    }
+    34%{
+        height: 7vh;
+    }
+    34.5% {
+        height: 0vh;
+    }
+    35% {
+        height: 7vh;
+    }
+    42%{
+        height: 7vh;
+    }
+    42.5% {
+        height: 0vh;
+    }
+    43% {
+        height: 7vh;
+    }
+    47%{
+        height: 7vh;
+    }
+    47.5% {
+        height: 0vh;
+    }
+    48% {
+        height: 7vh;
+    }
+    50%{
+        height: 7vh;
+    }
+    50.5% {
+        height: 0vh;
+    }
+    51% {
+        height: 7vh;
+    }
+    59%{
+        height: 7vh;
+    }
+    59.5% {
+        height: 0vh;
+    }
+    60% {
+        height: 7vh;
+    }
+    66%{
+        height: 7vh;
+    }
+    68.5% {
+        height: 1.5vh;
+    }
+    71% {
+        height: 7vh;
+    }
+    72%{
+        height: 7vh;
+    }
+    72.5% {
+        height: 0vh;
+    }
+    73% {
+        height: 7vh;
+    }
+    88%{
+        height: 7vh;
+    }
+    88.5% {
+        height: 0vh;
+    }
+    89% {
+        height: 7vh;
+    }
 }
