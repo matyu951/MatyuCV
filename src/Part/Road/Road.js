@@ -29,16 +29,12 @@ function Road(props) {
                     delay = delay + 0.01
                 }
             }
-            for(let i=0; i < hunderTextLetters.length; i++) {
-            }
             setUpdate(true)
         }
     }
 
     useEffect(() => {
         let stepsObject = document.querySelectorAll('#appear')
-
-        // gestion de l'apparition des lettre du texte
 
         for(let e of stepsObject) {
 

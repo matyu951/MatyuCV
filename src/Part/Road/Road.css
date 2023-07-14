@@ -147,7 +147,7 @@
     width: 4vh;
     height: .5vh;
     background-color: black;
-    box-shadow: -.8vh 0px 0vh 2.5vh var(--background-global);
+    box-shadow: -.8vh 0px 0vh 3vh var(--background-global);
     transform-origin: 0% 50%;
     transform: rotateY(90deg);
     transition: .2s;
@@ -160,7 +160,7 @@
 
 .Road .step .headStep .right .title{
     z-index: -3;
-    padding-left: 10vh;
+    padding-left: 10.5vh;
     height: 100%;
     display: flex;
     align-items: center;
@@ -191,16 +191,24 @@
     margin-left: 33vw;
     margin-top: 2vh;
     margin-right: 3vh;
+    opacity: 0;
+    transition: .1s;
+}
+
+.Road .step.active .bodyStep {
+    opacity: 1;
 }
 
 .Road .step .bodyStep .letter {
     display: inline-block;
     transform-origin: 0% 0%;
     transform: rotateY(90deg);
+    opacity: 0;
     transition: .2s;
 }
 
 .Road .step.active .bodyStep .letter {
     transform: rotateY(0deg);
-    transition: .2s;
+    opacity: 1;
+    transition: .2s, opacity .5s;
 }
