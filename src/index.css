@@ -1,3 +1,7 @@
+:root {
+  --background-global: rgb(184, 140, 74)
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,8 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(0, 25, 39);
-  font-size: calc(10px + 3vmin);
+  background-color: var(--background-global);
+  font-size: calc(10px + 1.5vw);
 }
 
 code {

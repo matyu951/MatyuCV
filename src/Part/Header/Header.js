@@ -20,16 +20,16 @@ function Header() {
             <div className='bubble s' />
         </div>
         <div id="layer-2" >
-            <div className='oeuil'>
-                <div className='popiere'>
-                    <div className='pupille' id='pupille' />
-                </div>
-            </div>
             <div className='bubble m'/>
         </div>
         <div id="layer-3" >
             <div className='bubble s' />
             <div className='bubble m' />
+            <div className='oeuil'>
+                <div className='popiere'>
+                    <div className='pupille' id='pupille' />
+                </div>
+            </div>
             <div className='name'>Berruer Mathis</div>
         </div>
     </div>

@@ -1,0 +1,206 @@
+.Road {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+    width: 100vw;
+}
+
+.Road .ligne {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    width: 30vw;
+    height: 100%;
+}
+
+.Road .ligne .progressLine {
+    z-index: 10;
+    width: 100%;
+    height: 0%;
+    border-right: .5vh solid black;
+}
+
+.Road .ligne .point.start {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 50% 100%;
+    transform: translate(1.75vh, -100%) scale(0);
+    transition: .5s;
+}
+
+.Road .ligne .point.start.active {
+    transform: translate(1.75vh, -100%) scale(1);
+    transition: .5s;
+}
+
+.Road .ligne .point.end {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform-origin: 50% 0%;
+    transform: translate(1.75vh, 100%) scale(0);
+    transition: .5s;
+}
+
+.Road .ligne .point.end.active {
+    transform: translate(1.75vh, 100%) scale(1);
+    transition: .5s;
+}
+
+.point {
+    height: 2vh;
+    width: 2vh;
+    border: 1vh solid black;
+    border-radius: 50%;
+}
+
+.Road .step {
+    position: absolute;
+    height: fit-content;
+    width: 100%;
+    top: 3%;
+}
+
+/* Head step */
+
+.Road .step .headStep {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+}
+
+.Road .step .headStep .left{
+    width: 30vw;
+    display: flex;
+    justify-content: flex-end;
+    transform-origin: 100% 50%;
+    transform: rotateY(-90deg);
+    transition: .2s;
+}
+
+.Road .step.active .headStep .left{
+    transform: rotateY(0deg);
+    transition: .4s;
+    transition-delay: .4s;
+}
+
+.Road .step .headStep .left .date{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: fit-content;
+    border-top-left-radius: 1vh;
+    border-bottom-left-radius: 1vh;
+    font-size: calc(10px + 1vw);
+}
+
+.Road .step .headStep .left .date::after, .Road .step .headStep .left .date::before {
+    content: "";
+    display: block;
+    width: 2vh;
+}
+
+.Road .step .headStep .right{
+    z-index: -2;
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transform-origin: 0% 50%;
+    /* transform: rotateY(90deg);
+    transition: .7s; */
+}
+
+/* .Road .step .headStep .right.active{
+    transform: rotateY(0deg);
+    transition: .7s;
+} */
+
+.Road .step .headStep .right .pointStep{
+    z-index: -2;
+    position: absolute;
+    width: 8vh;
+    display: flex;
+    align-items: center;
+    /* filter: drop-shadow(0px 0px 10px ); */
+}
+
+.Road .step .headStep .right .pointStep .point{
+    z-index: 0 ;
+    background-color: var(--background-global);
+    box-shadow: .8vh 0px 0vh .8vh var(--background-global);
+    transform-origin: -4vh 50%;
+    transform: rotateY(90deg);
+    transition: .2s;
+}
+
+.Road .step.active .headStep .right .pointStep .point{
+    transform: rotateY(0deg);
+    transition: .4s;
+}
+
+.Road .step .headStep .right .pointStep::before{
+    content: "";
+    display: block;
+    width: 4vh;
+    height: .5vh;
+    background-color: black;
+    box-shadow: -.8vh 0px 0vh 2.5vh var(--background-global);
+    transform-origin: 0% 50%;
+    transform: rotateY(90deg);
+    transition: .2s;
+}
+
+.Road .step.active .headStep .right .pointStep::before{
+    transform: rotateY(0deg);
+    transition: .4s;
+}
+
+.Road .step .headStep .right .title{
+    z-index: -3;
+    padding-left: 10vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-top-right-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+    background-color: white;
+    transform-origin: 0% 50%;
+    transform: rotateY(90deg);
+    transition: .2s;
+}
+
+.Road .step.active .headStep .right .title{
+    transform: rotateY(0deg);
+    transition: .4s;
+    transition-delay: .4s;
+}
+
+.Road .step .headStep .right .title::after{
+    content: "";
+    display: block;
+    width: 2vh;
+    height: 100%;
+}
+
+/* Body step */
+
+.Road .step .bodyStep {
+    margin-left: 33vw;
+    margin-top: 2vh;
+    margin-right: 3vh;
+}
+
+.Road .step .bodyStep .letter {
+    display: inline-block;
+    transform-origin: 0% 0%;
+    transform: rotateY(90deg);
+    transition: .2s;
+}
+
+.Road .step.active .bodyStep .letter {
+    transform: rotateY(0deg);
+    transition: .2s;
+}

@@ -39,12 +39,12 @@
     transition: left .6s;
 }
 
-#layer-2 .bubble:nth-of-type(2){
+#layer-2 .bubble:nth-of-type(1){
     left: -200%;
     top: 25%;
 }
 
-.active #layer-2 .bubble:nth-of-type(2){
+.active #layer-2 .bubble:nth-of-type(1){
     left: 90%;
 }
 
@@ -119,12 +119,13 @@
     overflow: hidden;
 }
 
-#layer-2 .oeuil{
+#layer-3 .oeuil{
     left: -20%;
     top: 15%;
+    transition: left .3s;
 }
 
-.active #layer-2 .oeuil{
+.active #layer-3 .oeuil{
     left: 50%;
 }
 
