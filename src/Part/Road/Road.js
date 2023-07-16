@@ -3,35 +3,13 @@ import './Road.css';
 
 function Road(props) {
 
-    const [update, setUpdate] = useState(false)
-
     const trigger = window.screen.height*0.80
 
     var steps = [
-        {date: "2018 - 2020", title: "BTS", txt: "BTS SIO (Service Informatique aux Organisation)"},
-        {date: "2020 - 2021", title: "Licence en alternance", txt: "Licence TQL (Test et Qualité Logiciel) réalisé en alternance dans l'entreprise Hipay"},
-        {date: "2021 - mntn", title: "embauche CDI Hipay", txt: "signature d'un CDI à Hipay SAS suite à ma formation en alternance"},
+        {date: "2018 - 2020", title: "BTS", txt: "BTS SIO (Service Informatique aux Organisation), réalisé suite à un bac pro GA (Gestion et Administration), on peut appeler ça une reconversion !"},
+        {date: "2020 - 2021", title: "Licence en alternance", txt: "Licence TQL (Test et Qualité Logiciel) réalisé en alternance dans l'entreprise Hipay en tant que QA junior (Quality Analyst junior)"},
+        {date: "2021 - ajd", title: "CDI Hipay", txt: "CDI signé chez Hipay SAS suite à ma formation en alternance, une opportunité d'embauche si tôt ça ne se refuse pas"},
     ]
-
-    //changement du text en span par lettre + attribution d'un délai de transition
-    let hunderText = document.querySelectorAll('.bodyStep'),
-    hunderTextLetters = document.querySelectorAll('.bodyStep .letter')
-    if(hunderTextLetters.length === 0) {
-        for(let textanim of hunderText) {
-            textanim.innerHTML = textanim.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-        }
-    } else {
-        if(!update){
-            for(let body of hunderText) {
-                let delay = 0.01
-                for(let letter of body.children) {
-                    letter.style.transitionDelay = `${delay}s`
-                    delay = delay + 0.01
-                }
-            }
-            setUpdate(true)
-        }
-    }
 
     useEffect(() => {
         let stepsObject = document.querySelectorAll('#appear')
