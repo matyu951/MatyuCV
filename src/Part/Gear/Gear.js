@@ -11,7 +11,7 @@ function Gear(props) {
 
     var steps = {
         languages: [
-          {pourcentage: 96, nom: "JS", comm: "Utilisé dans tous mes projet web"},
+          {pourcentage: 96, nom: "JS", comm: "Utilisé dans tous mes projets web"},
           {pourcentage: 95, nom: "CSS", comm: "Je ne jure que par le CSS"},
           {pourcentage: 90, nom: "HTML", comm: "Qui ne connais pas ?"},
           {pourcentage: 80, nom: "SQL", comm: "Basique et efficace pour initier un projet"},
@@ -19,22 +19,22 @@ function Gear(props) {
           {pourcentage: 30, nom: "CSharp", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
           {pourcentage: 30, nom: "Python", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
           {pourcentage: 10, nom: "Kotlin", comm: "rapidement itilisé sur des tentatives sous android"},
-          {pourcentage: 10, nom: "PHP", comm: "Désolé, peut pour moi"},
+          {pourcentage: 10, nom: "PHP", comm: "Désolé, peut pour moi !"},
         ],
         techno: [
-          {pourcentage: 95, nom: "React", comm: "Utilisé dans tous mes projet web"},
-          {pourcentage: 90, nom: "CodeceptJS", comm: "utilisé en entreprise (Hipay), pour les automatisation"},
-          {pourcentage: 55, nom: "TypeScript", comm: "utilisé dans des projet avec des amis, pas seul !"},
+          {pourcentage: 95, nom: "React", comm: "Utilisé dans tous mes projets web"},
+          {pourcentage: 90, nom: "CodeceptJS", comm: "utilisé en entreprise (Hipay), pour les automatisations"},
+          {pourcentage: 55, nom: "TypeScript", comm: "utilisé dans des projets avec des amis, pas seul !"},
           {pourcentage: 60, nom: "Linux", comm: "utilisé en entreprise (Hipay)"},
           {pourcentage: 20, nom: "Playwright", comm: "solution connu mais pas encore utilisé (à explorer)"},
           {pourcentage: 5, nom: "Symfony", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
-          {pourcentage: 8, nom: "Bootstrap", comm: "je ne suis pas fan des lib de styles !"},
+          {pourcentage: 8, nom: "Bootstrap", comm: "je ne suis pas fan des libs de styles !"},
           {pourcentage: 5, nom: "Tailwind", comm: "connu mais jamais utilisé"},
         ],
         outil: [
           {pourcentage: 95, nom: "Visual Studio", comm: "quotidiennement utilisé"},
           {pourcentage: 85, nom: "PHPStorm", comm: "utilisé en entreprise (Hipay)"},
-          {pourcentage: 95, nom: "Photoshop", comm: "utilisé pour faire des Logo et du photomontage"},
+          {pourcentage: 95, nom: "Photoshop", comm: "utilisé pour faire des Logos et du photomontage"},
           {pourcentage: 70, nom: "Jira", comm: "utilisé en entreprise (Hipay)"},
           {pourcentage: 70, nom: "Gitlab", comm: "nécécairement nécessaire (outil git en général)"},
           {pourcentage: 45, nom: "Xray", comm: "utilisé en entreprise (Hipay)"},
