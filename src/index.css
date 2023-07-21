@@ -1,5 +1,5 @@
 :root {
-  --background-global: rgb(184, 140, 74)
+  --background-global: darkslategray
 }
 
 body {
@@ -16,4 +16,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.WIP {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25vh;
+  font-family:'Times New Roman', Times, serif;
+  text-decoration-line: overline;
 }

@@ -69,6 +69,7 @@
     height: 5vh;
     width: 100%;
     display: flex;
+    color: black;
 }
 
 .Road .step .headStep .left{

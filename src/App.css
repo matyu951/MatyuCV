@@ -1,6 +1,7 @@
 .App {
   height: fit-content;
   overflow: hidden;
+  color: aliceblue;
 }
 
 #layer-1, #layer-2, #layer-3 {

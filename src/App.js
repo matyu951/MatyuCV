@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './Part/Header/Header';
 import Road from './Part/Road/Road';
+import Gear from './Part/Gear/Gear';
 
 function App() {
   const [scrollTop, setScrollTop] = useState(0);
@@ -62,7 +63,9 @@ function App() {
     <div className="App" onMouseMove={(e) => mouseParallaxEffect(e)} >
       <Header />
       <Road scrolling={scrollTop} />
-      <div style={{height: '100vh'}} />
+      <div style={{height: '10vh'}} />
+      <Gear scrolling={scrollTop} />
+      <div className='WIP'> WIP </div>
     </div>
   );
 }

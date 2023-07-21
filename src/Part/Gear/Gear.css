@@ -1,5 +1,246 @@
 .Gear {
     position: relative;
-    height: 100vh;
+    height: fit-content;
     width: 100vw;
 }
+
+.Gear .categorie {
+    width: 100%;
+}
+
+.Gear .categorie .title > h2{
+    width: 100%;
+    text-indent: 3vh;
+    transform: translate(-200%, 0);
+    transition: .5s;
+}
+
+.Gear .categorie.active .title > h2{
+    width: 100%;
+    text-indent: 3vh;
+    transform: translate(0, 0);
+    transition: .5s;
+}
+
+.Gear .categorie .title > h2::first-letter{
+    text-transform: capitalize;
+}
+
+.Gear .categorie .jaugesContener{
+    position: relative;
+    height: 0px;
+    overflow: hidden;
+    transition: .7s;
+}
+
+.Gear .categorie .jaugesContener .jaugesList {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw;
+    padding-top: 2vw;
+    top: 0;
+    left: 0;
+    height: fit-content;
+}
+
+.Gear .contener {
+    height: 35vh;
+    width: 35vh;
+    background-color: var(--background-global);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: -0.2vw -0.2vw .4vw rgba(255,255,255,0.45), .2vw .2vw .4vw rgba(94,104,121,0.3);
+    font-size: 3vh;
+}
+
+.Gear .contener .nom {
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Gear .contener .jauge {
+    position: relative;
+    height: 22vh;
+    width: 22vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.Gear .contener .jauge .back {
+    position: relative;
+    height: 96%;
+    width: 96%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Gear .contener .jauge .back::before {
+    content: "";
+    z-index: 2;
+    display: block;
+    position: absolute;
+    height: 50%;
+    width: 103%;
+    bottom: 0;
+    transform-origin: 50% 0%;
+    background-color: var(--background-global);
+    box-shadow: inset 0px 15px 2px -10px black;
+}
+
+.Gear .contener .jauge .back::after {
+    content: "";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+    box-shadow: inset 0px -5px 3px rgb(0, 0, 0, .5);
+    background-color: var(--background-global);
+}
+
+.Gear .contener .jauge .back .backgroundGradient{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0px -5px 3px rgb(0, 0, 0, .5);
+}
+
+.Gear .contener .jauge .back .backgroundGradient .toanim{
+    z-index: 1;
+    position: absolute;
+    height: 102%;
+    width: 102%;
+    border-radius: 50%;
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px;
+    background-image: conic-gradient(from 270deg at 50% 50%, #00FFFF00 0%, #00FFFF00 48.5%, var(--background-global) 50%);
+    transform: rotate(-180deg);
+    transition: 1s;
+}
+
+.Gear .contener .jauge .back .backgroundGradient::before{
+    content: "";
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px;
+    background-image: conic-gradient(from 0deg at 50% 50%, #FF0000FF 0%, #FFAF00FF 25%, #00FF3CFF 50%);
+    transform: rotate(-90deg);
+    transition: 1s;
+}
+
+.Gear .contener .jauge .front {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.Gear .contener .jauge .front .logo{
+    z-index: 3;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 40%;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    filter: drop-shadow(0px -5px 3px rgb(0, 0, 0, .5));
+    transition: 1s;
+}
+
+.Gear .contener .jauge .front .logo img{
+    z-index: 10;
+    object-fit: contain;
+    height: 80%;
+    width: 80%;
+    border-radius: 20px;
+    filter: none
+}
+
+.Gear .contener .jauge .front .aiguille{
+    z-index: 2;
+    position: absolute;
+    height: 30%;
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    border-radius: 0% 100% 0% 100%;
+    transform-origin: 100% 100%;
+    transform: translate(-100%, -100%) rotate(-45deg);
+    background-color: white;
+    filter: drop-shadow(-5px -5px 3px rgb(0, 0, 0, .5));
+    transition: 1s;
+}
+
+.Gear .contener .info {
+    height: 8vh;
+    width: 100%;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    font-size: 2.5vh;
+}
+
+.Gear .categorie.active .collapse {
+    margin: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -0.2vw -0.2vw .4vw rgba(255,255,255,0.45), .2vw .2vw .4vw rgba(94,104,121,0.3);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 1;
+    transition: .7s;
+}
+
+.Gear .categorie .collapse {
+    width: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transition: .7s;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    height: 0;
+    transition: .5s;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
