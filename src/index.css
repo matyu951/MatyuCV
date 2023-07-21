@@ -2,6 +2,12 @@
   --background-global: darkslategray
 }
 
+@font-face {
+	font-family: 'Geo';
+	/* font-weight: 700; */
+	src: url('../src/Ressources/font/Geotype.ttf') format('truetype')
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

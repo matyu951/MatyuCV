@@ -7,8 +7,6 @@ function Gear(props) {
   
   const trigger = window.screen.height*0.50
 
-  // const [jaugeContenerHeightRemember, setJaugeContenerHeightRemember] = useState("0px")
-
     var steps = {
         languages: [
           {pourcentage: 96, nom: "JS", comm: "Utilisé dans tous mes projets web"},
@@ -18,7 +16,7 @@ function Gear(props) {
           {pourcentage: 60, nom: "Java", comm: "Appris et utilisé en cours mais jamais personellement"},
           {pourcentage: 30, nom: "CSharp", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
           {pourcentage: 30, nom: "Python", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
-          {pourcentage: 10, nom: "Kotlin", comm: "rapidement itilisé sur des tentatives sous android"},
+          {pourcentage: 10, nom: "Kotlin", comm: "rapidement utilisé sur des tentatives sous android"},
           {pourcentage: 10, nom: "PHP", comm: "Désolé, peut pour moi !"},
         ],
         techno: [
@@ -47,21 +45,19 @@ function Gear(props) {
       
       let categorie = document.querySelectorAll('.categorie')
 
-      // console.log(`${categorie[0].getBoundingClientRect().top} < ${trigger}`)
-// console.log(jaugeContenerHeightRemember)
       for(let e of categorie) {
 
         // gestion de l'apparition des catégorie
         if(e.getBoundingClientRect().top <= trigger){
           e.classList.add("active")
-          if(!e.children[1].classList[1]) e.children[1].style.height = `calc(35vh + 3vw)`; //réinitialiser la taille de jaugesContener
-          e.children[2].children[0].classList.remove("up") //réinitialiser la direction de arrow
+          if(!e.children[1].classList[1]) e.children[1].style.height = `calc(35vh + 3vw)`; //réinitialiser la taille de jaugesContener à l'apparition
+          e.children[2].children[0].classList.remove("up") //réinitialiser la direction de arrow à l'apparition
           e.children[2].children[0].classList.add("down")
           
         }
         if(e.getBoundingClientRect().top > trigger){
             e.classList.remove("active")
-            e.children[1].classList.remove("collapsed")
+            e.children[1].classList.remove("collapsed")//réinitialiser lu collapse à la disparition
             e.children[1].style.height = "0px"
         }
       }
@@ -69,7 +65,8 @@ function Gear(props) {
 
 
     }, [props.scrolling])
-
+    
+    // composant de la jauge
     const Jauge = (categorie, info, index) => {
       return (
         <div key={index} className='contener'>
@@ -92,6 +89,7 @@ function Gear(props) {
       )
     }
 
+    // fonction de collapse
     const Collapse = (categorie) => {
       var jaugesListHeight = document.querySelector(`.${categorie} .jaugesList`).clientHeight;
       var jaugesContener = document.querySelector(`.${categorie} .jaugesContener`);
@@ -101,6 +99,7 @@ function Gear(props) {
         arrow.classList.remove("up")
         arrow.classList.add("down")
         jaugesContener.classList.remove("collapsed")
+        document.querySelector(`.${categorie}`).scrollIntoView({ behavior: 'smooth', block: 'start'})
         return jaugesContener.style.height = `calc(35vh + 3vw)`;
       }
       arrow.classList.remove("down")
@@ -109,6 +108,7 @@ function Gear(props) {
       jaugesContener.style.height = `calc(${jaugesListHeight}px + 2vw)`;
     }
 
+    // composant de la catégorie
     const Categorie = (categorie, titre) => {
       return (
         <div className={'categorie ' + categorie}>
