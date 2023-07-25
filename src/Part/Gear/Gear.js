@@ -51,25 +51,28 @@ function Gear(props) {
         // gestion de l'apparition des catégorie
         if(e.getBoundingClientRect().top <= trigger){
           e.classList.add("active")
-          if(!e.children[1].classList[1]) e.children[1].style.height = `calc(35vh + 3vw)`; //réinitialiser la taille de jaugesContener à l'apparition
+          if(!e.children[1].classList[1]) e.children[1].style.height = `calc(40vh + 3vw)`; //réinitialiser la taille de jaugesContener à l'apparition
           
 
           // gestion de l'animation des jauges au scroll orizontale
           let jaugesContener = e.children[1].getBoundingClientRect()
-          let jaugeToAnim = document.querySelectorAll(`.${e.classList[1]}.active .contener`)
+          let contenerJauge = document.querySelectorAll(`.${e.classList[1]}.active .contener`)
           
-          for(let cont = 0; cont <= jaugeToAnim.length-1; cont++){
-            let valueCont = jaugeToAnim[cont].getBoundingClientRect()
+          for(let cont = 0; cont <= contenerJauge.length-1; cont++){
+            var JaugeLeft = contenerJauge[cont].getBoundingClientRect().left + jaugesContener.left,
+            JaugeRight = contenerJauge[cont].getBoundingClientRect().right + jaugesContener.left,
+            OnePercentTrigger = window.innerWidth / 100
 
+            console.log(jaugesContener.right + ' right')
+            console.log(jaugesContener.left + ' left')
 
-            if(valueCont.right >= jaugesContener.right/100*25 && valueCont.left <= jaugesContener.right/100*80) {
-              jaugeToAnim[cont].classList.add('true')
+            if(JaugeRight > OnePercentTrigger*50+jaugesContener.left && JaugeLeft < OnePercentTrigger*50+jaugesContener.left) {
+              contenerJauge[cont].classList.remove('back')
+              contenerJauge[cont].classList.add('front')
             }
-            if(valueCont.right <= jaugesContener.right/100*25) {
-              jaugeToAnim[cont].classList.remove('true')
-            }
-            if(valueCont.left >= jaugesContener.right/100*80) {
-              jaugeToAnim[cont].classList.remove('true')
+            if(JaugeRight < OnePercentTrigger*50+jaugesContener.left || JaugeLeft > OnePercentTrigger*50+jaugesContener.left) {
+              contenerJauge[cont].classList.remove('front')
+              contenerJauge[cont].classList.add('back')
             }
           }
 
@@ -94,14 +97,14 @@ function Gear(props) {
           <div className='jauge'>
             <div className='back'>
               <div className='backgroundGradient'>
-                <div className='toanim' style={{transform: `rotate(${document.querySelector(`.${categorie}.active .contener.index${index}.true`) ? -180 + (180*info.pourcentage/100) : "-180"}deg)`}}/>
+                <div className='toanim' style={{transform: `rotate(${document.querySelector(`.${categorie}.active .contener.index${index}.front`) ? -180 + (180*info.pourcentage/100) : "-180"}deg)`}}/>
               </div>
             </div>
             <div className='front'>
               <div className='logo'>
                 <img src={require(`../../Ressources/pictures/${info.nom}logo.png`)} />
               </div>
-              <div className='aiguille' style={{transform: `translate(-100%, -100%) rotate(${document.querySelector(`.${categorie}.active .contener.index${index}.true`) ? -45 + (180*info.pourcentage/100) : "-45"}deg)`}}/>
+              <div className='aiguille' style={{transform: `translate(-100%, -100%) rotate(${document.querySelector(`.${categorie}.active .contener.index${index}.front`) ? -45 + (180*info.pourcentage/100) : "-45"}deg)`}}/>
             </div>
           </div>
           <div className='info'>{info.comm}</div>

@@ -11,7 +11,7 @@ function Hobbies(props) {
     const hobbies = [
         {
             title: "Escalade", 
-            text: <>Découvert par hazard, j'ai essayé une fois et c'est devenu LE sport que je pratique maintenant.<br />Je trouve toujours autant de plaisir à grimper des parcours nouveaux comme anciens</>, 
+            text: <>Découvert par hasard, j'ai essayé une fois et c'est devenu LE sport que je pratique maintenant.<br />Je trouve toujours autant de plaisir à grimper des parcours nouveaux comme anciens</>, 
             color: "darkgrey",
             border: "50%",
             image: require('../../Ressources/pictures/Escaladepicture.jpg')
@@ -32,7 +32,7 @@ function Hobbies(props) {
         },
         {
             title: "Développement", 
-            text: <>Je suis tombé dedans suite à un bac professionnel de gestion et d'administration qui ne me plaisait pas, mais j'ai bien trouvé ma vois.<br />Fait maintenant partie intégrante de mes temps libres, et j'aime ça</>, 
+            text: <>Je suis tombé dedans suite à un bac professionnel de gestion et d'administration qui ne me plaisait pas, mais j'ai bien trouvé ma voie.<br />Fait maintenant partie intégrante de mes temps libres, et j'aime ça</>, 
             color: "khaki",
             border: "500% 50% 50% 50%",
             image: require('../../Ressources/pictures/Developpementpicture.jpg')
@@ -82,7 +82,7 @@ function Hobbies(props) {
         }, 1000);
       
         return () => {clearInterval(interval);clearInterval(intervalD)}
-      }, [actualIndex]);
+    }, [actualIndex]);
 
         useEffect(() => {
             var contener = document.querySelector('.cardcontener'),
