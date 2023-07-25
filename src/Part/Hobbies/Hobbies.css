@@ -13,7 +13,14 @@
 
 .Hobbies > .title h2 {
     font-size: 5vh;
+    transform: translate(-100vw, 0);
     text-decoration-line: underline;
+    animation: desappear-right 1s;
+}
+
+.Hobbies > .title h2.active {
+    transform: translate(0%, 0) ;
+    animation: appear-left 1s cubic-bezier(.47,1.5,.41,.8);
 }
 
 .Hobbies .cardcontener {

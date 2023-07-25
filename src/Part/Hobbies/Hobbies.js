@@ -78,13 +78,16 @@ function Hobbies(props) {
       }, [actualIndex]);
 
         useEffect(() => {
-            var contener = document.querySelector('.cardcontener')
+            var contener = document.querySelector('.cardcontener'),
+            title = document.querySelector('.Hobbies > .title h2')
 
             if(contener.getBoundingClientRect().top < trigger) {
                 contener.classList.add("active")
+                title.classList.add("active")
             }
             if(contener.getBoundingClientRect().top > trigger) {
                 contener.classList.remove("active")
+                title.classList.remove("active")
             }
 
         }, [props.scrolling]);
