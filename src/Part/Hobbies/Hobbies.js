@@ -92,6 +92,9 @@ function Hobbies(props) {
 
   return (
     <div className="Hobbies" >
+        <div className='title'>
+            <h2>Hobbies</h2>
+        </div>
         <div className='cardcontener'>
             <div className='card'>
                 <div className='content'>
@@ -115,7 +118,7 @@ function Hobbies(props) {
                 {
                     hobbies.map((hob, index) => {
                         return (
-                            <div key={index} className={`toggle${index === actualIndex ? " active" : ""}`} onClick={() => {isTogglable && setActualIndex(index)}} />
+                            <div key={index} className={`toggle${index === actualIndex ? " active" : ""}${isTogglable ? "" : " unTogglable"}`} onClick={() => {isTogglable && setActualIndex(index)}} />
                         )
                     })
                 }

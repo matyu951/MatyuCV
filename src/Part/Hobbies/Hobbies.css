@@ -8,6 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.Hobbies > .title h2 {
+    font-size: 5vh;
+    text-decoration-line: underline;
 }
 
 .Hobbies .cardcontener {
@@ -25,7 +31,7 @@
 }
 
 .Hobbies .cardcontener .card .content{
-    height: 45vh;
+    height: 40vh;
     width: 40vh;
     opacity: 0;
     transform: translate(-100vw, -50vh);
@@ -40,7 +46,7 @@
 
 .Hobbies .cardcontener .card .picturezone{
     position: relative;
-    height: 45vh;
+    height: 40vh;
     width: 40vh;
     display: flex;
     justify-content: center;
@@ -109,8 +115,20 @@
     transition: .5s;
 }
 
+.Hobbies .cardcontener .togglezone .toggle.unTogglable:hover {
+    transform: scale(1);
+    transition: .5s;
+}
+
+.Hobbies .cardcontener .togglezone .toggle.unTogglable {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: .5vh solid rgba(0, 0, 0, 0.5);
+    transition: .5s;
+}
+
 .Hobbies .cardcontener .togglezone .toggle.active {
     background-color: black;
+    transition: .5s;
 }
 
 @keyframes backImageAnim {
