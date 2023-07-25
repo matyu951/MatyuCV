@@ -4,40 +4,41 @@ import './Gear.css';
 
 function Gear(props) {
 
+  const [update, setUpdate] = useState(0)
   
-  const trigger = window.screen.height*0.50
+  const trigger = window.screen.height*0.60
 
     var steps = {
         languages: [
           {pourcentage: 96, nom: "JS", comm: "Utilisé dans tous mes projets web"},
           {pourcentage: 95, nom: "CSS", comm: "Je ne jure que par le CSS"},
-          {pourcentage: 90, nom: "HTML", comm: "Qui ne connais pas ?"},
+          {pourcentage: 90, nom: "HTML", comm: "Qui ne connaît pas ?"},
           {pourcentage: 80, nom: "SQL", comm: "Basique et efficace pour initier un projet"},
-          {pourcentage: 60, nom: "Java", comm: "Appris et utilisé en cours mais jamais personellement"},
-          {pourcentage: 30, nom: "CSharp", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
-          {pourcentage: 30, nom: "Python", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
+          {pourcentage: 60, nom: "Java", comm: "Appris et utilisé en cours mais jamais personnellement"},
+          {pourcentage: 30, nom: "CSharp", comm: "Appris et utilisé en BTS, ça remonte un peu !"},
+          {pourcentage: 30, nom: "Python", comm: "Appris et utilisé en BTS, ça remonte un peu !"},
           {pourcentage: 10, nom: "Kotlin", comm: "rapidement utilisé sur des tentatives sous android"},
-          {pourcentage: 10, nom: "PHP", comm: "Désolé, peut pour moi !"},
+          {pourcentage: 10, nom: "PHP", comm: "Désolé, peu pour moi !"},
         ],
         techno: [
           {pourcentage: 95, nom: "React", comm: "Utilisé dans tous mes projets web"},
-          {pourcentage: 90, nom: "CodeceptJS", comm: "utilisé en entreprise (Hipay), pour les automatisations"},
-          {pourcentage: 55, nom: "TypeScript", comm: "utilisé dans des projets avec des amis, pas seul !"},
-          {pourcentage: 60, nom: "Linux", comm: "utilisé en entreprise (Hipay)"},
-          {pourcentage: 20, nom: "Playwright", comm: "solution connu mais pas encore utilisé (à explorer)"},
-          {pourcentage: 5, nom: "Symfony", comm: "Appris et utilisé en BTS, ça remonte un peut !"},
-          {pourcentage: 8, nom: "Bootstrap", comm: "je ne suis pas fan des libs de styles !"},
-          {pourcentage: 5, nom: "Tailwind", comm: "connu mais jamais utilisé"},
+          {pourcentage: 90, nom: "CodeceptJS", comm: "Utilisé en entreprise (Hipay), pour les automatisations"},
+          {pourcentage: 55, nom: "TypeScript", comm: "Utilisé dans des projets avec des amis, pas seul !"},
+          {pourcentage: 60, nom: "Linux", comm: "Utilisé en entreprise (Hipay)"},
+          {pourcentage: 20, nom: "Playwright", comm: "Solution connue mais pas encore utilisée (à explorer)"},
+          {pourcentage: 5, nom: "Symfony", comm: "Appris et utilisé en BTS, ça remonte un peu !"},
+          {pourcentage: 8, nom: "Bootstrap", comm: "Je ne suis pas fan des libs de styles !"},
+          {pourcentage: 5, nom: "Tailwind", comm: "Connu mais jamais utilisé"},
         ],
         outil: [
-          {pourcentage: 95, nom: "Visual Studio", comm: "quotidiennement utilisé"},
-          {pourcentage: 85, nom: "PHPStorm", comm: "utilisé en entreprise (Hipay)"},
-          {pourcentage: 95, nom: "Photoshop", comm: "utilisé pour faire des Logos et du photomontage"},
-          {pourcentage: 70, nom: "Jira", comm: "utilisé en entreprise (Hipay)"},
-          {pourcentage: 70, nom: "Gitlab", comm: "nécécairement nécessaire (outil git en général)"},
-          {pourcentage: 45, nom: "Xray", comm: "utilisé en entreprise (Hipay)"},
-          {pourcentage: 60, nom: "Squash", comm: "utilisé en entreprise (Hipay)"},
-          {pourcentage: 50, nom: "MySQL", comm: "pour mes BDD"},
+          {pourcentage: 95, nom: "Visual Studio", comm: "Quotidiennement utilisé"},
+          {pourcentage: 85, nom: "PHPStorm", comm: "Utilisé en entreprise (Hipay)"},
+          {pourcentage: 95, nom: "Photoshop", comm: "Utilisé pour faire des Logos et du photomontage"},
+          {pourcentage: 70, nom: "Jira", comm: "Utilisé en entreprise (Hipay)"},
+          {pourcentage: 70, nom: "Gitlab", comm: "Nécessairement nécessaire (outil git en général)"},
+          {pourcentage: 45, nom: "Xray", comm: "Utilisé en entreprise (Hipay)"},
+          {pourcentage: 60, nom: "Squash", comm: "Utilisé en entreprise (Hipay)"},
+          {pourcentage: 50, nom: "MySQL", comm: "Pour mes BDD"},
         ],
     }
 
@@ -51,37 +52,56 @@ function Gear(props) {
         if(e.getBoundingClientRect().top <= trigger){
           e.classList.add("active")
           if(!e.children[1].classList[1]) e.children[1].style.height = `calc(35vh + 3vw)`; //réinitialiser la taille de jaugesContener à l'apparition
-          e.children[2].children[0].classList.remove("up") //réinitialiser la direction de arrow à l'apparition
-          e.children[2].children[0].classList.add("down")
           
+
+          // gestion de l'animation des jauges au scroll orizontale
+          let jaugesContener = e.children[1].getBoundingClientRect()
+          let jaugeToAnim = document.querySelectorAll(`.${e.classList[1]}.active .contener`)
+          
+          for(let cont = 0; cont <= jaugeToAnim.length-1; cont++){
+            let valueCont = jaugeToAnim[cont].getBoundingClientRect()
+
+
+            if(valueCont.right >= jaugesContener.right/100*25 && valueCont.left <= jaugesContener.right/100*80) {
+              jaugeToAnim[cont].classList.add('true')
+            }
+            if(valueCont.right <= jaugesContener.right/100*25) {
+              jaugeToAnim[cont].classList.remove('true')
+            }
+            if(valueCont.left >= jaugesContener.right/100*80) {
+              jaugeToAnim[cont].classList.remove('true')
+            }
+          }
+
         }
         if(e.getBoundingClientRect().top > trigger){
             e.classList.remove("active")
-            e.children[1].classList.remove("collapsed")//réinitialiser lu collapse à la disparition
             e.children[1].style.height = "0px"
         }
       }
 
+      
 
 
-    }, [props.scrolling])
+    }, [props.scrolling, update])
     
     // composant de la jauge
     const Jauge = (categorie, info, index) => {
+
       return (
-        <div key={index} className='contener'>
+        <div key={index} className={`contener index${index}`} >
           <div className='nom'>{info.nom}</div>
           <div className='jauge'>
             <div className='back'>
               <div className='backgroundGradient'>
-                <div className='toanim' style={{transform: `rotate(${document.querySelector(`.${categorie}.active`) ? -180 + (180*info.pourcentage/100) : "-180"}deg)`}}/>
+                <div className='toanim' style={{transform: `rotate(${document.querySelector(`.${categorie}.active .contener.index${index}.true`) ? -180 + (180*info.pourcentage/100) : "-180"}deg)`}}/>
               </div>
             </div>
             <div className='front'>
               <div className='logo'>
                 <img src={require(`../../Ressources/pictures/${info.nom}logo.png`)} />
               </div>
-              <div className='aiguille' style={{transform: `translate(-100%, -100%) rotate(${document.querySelector(`.${categorie}.active`) ? -45 + (180*info.pourcentage/100) : "-45"}deg)`}}/>
+              <div className='aiguille' style={{transform: `translate(-100%, -100%) rotate(${document.querySelector(`.${categorie}.active .contener.index${index}.true`) ? -45 + (180*info.pourcentage/100) : "-45"}deg)`}}/>
             </div>
           </div>
           <div className='info'>{info.comm}</div>
@@ -89,31 +109,12 @@ function Gear(props) {
       )
     }
 
-    // fonction de collapse
-    const Collapse = (categorie) => {
-      var jaugesListHeight = document.querySelector(`.${categorie} .jaugesList`).clientHeight;
-      var jaugesContener = document.querySelector(`.${categorie} .jaugesContener`);
-      var arrow = document.querySelector(`.${categorie} .arrow`);
-
-      if(jaugesContener.classList[1] === "collapsed"){
-        arrow.classList.remove("up")
-        arrow.classList.add("down")
-        jaugesContener.classList.remove("collapsed")
-        document.querySelector(`.${categorie}`).scrollIntoView({ behavior: 'smooth', block: 'start'})
-        return jaugesContener.style.height = `calc(35vh + 3vw)`;
-      }
-      arrow.classList.remove("down")
-      arrow.classList.add("up")
-      jaugesContener.classList.add("collapsed")
-      jaugesContener.style.height = `calc(${jaugesListHeight}px + 2vw)`;
-    }
-
     // composant de la catégorie
     const Categorie = (categorie, titre) => {
       return (
         <div className={'categorie ' + categorie}>
           <div className='title'><h2>{titre}</h2></div>
-          <div className='jaugesContener'>
+          <div className='jaugesContener' onScroll={e => setUpdate(e.currentTarget.children[0].getBoundingClientRect().left)}>
             <div className="jaugesList">
               {
                 steps[categorie].map((info, index) => {
@@ -122,15 +123,12 @@ function Gear(props) {
               }
             </div>
           </div>
-          <div className='collapse' onClick={() => Collapse(categorie)}>
-            <i className="arrow down" />
-          </div>
         </div>
       )
     }
 
   return (
-    <div className="Gear">
+    <div className="Gear" style={{height: `${60*Object.keys(steps).length}vh`}}>
       {Categorie("languages", "languages")}
       {Categorie("techno", "techno/Libs")}
       {Categorie("outil", "outil/Logiciel")}

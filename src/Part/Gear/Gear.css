@@ -9,22 +9,24 @@
 
 .Gear .categorie {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Gear .categorie .title > h2{
     width: 100%;
-    text-indent: 3vh;
-    transform: translate(-200%, 0);
-    /* font-family: "Geo"; */
-    transition: .5s;
+    font-size: 5vh;
+    transform: translate(-100vw, 0) ;
+    text-decoration-line: underline;
+    animation: desappear-right 1s;
 }
 
 .Gear .categorie.active .title > h2{
     width: 100%;
     text-indent: 3vh;
-    transform: translate(0, 0);
-    transition: .5s;
-    margin-bottom: 0;
+    transform: translate(0%, 0) ;
+    animation: appear-left 1s cubic-bezier(.47,1.5,.41,.8);
 }
 
 .Gear .categorie .title > h2::first-letter{
@@ -34,20 +36,36 @@
 .Gear .categorie .jaugesContener{
     position: relative;
     height: 0px;
+    width: 80%;
     overflow: hidden;
+    overflow-x: scroll;
     transition: .7s;
+}
+
+.Gear .categorie .jaugesContener::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+}
+
+.Gear .categorie .jaugesContener::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 50px;
+}
+
+.Gear .categorie .jaugesContener::-webkit-scrollbar-thumb:hover {
+    transform: scale(1.2);
 }
 
 .Gear .categorie .jaugesContener .jaugesList {
     position: absolute;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 3vw;
     padding-top: 2vw;
+    padding-left: 2vw;
     top: 0;
     left: 0;
-    height: fit-content;
+    width: fit-content;
 }
 
 .Gear .contener {
@@ -136,7 +154,7 @@
     background-position: 0px 0px,0px 0px;
     background-image: conic-gradient(from 270deg at 50% 50%, #00FFFF00 0%, #00FFFF00 48.5%, var(--background-global) 50%);
     transform: rotate(-180deg);
-    transition: 1s;
+    transition: 1s cubic-bezier(.47,1.64,.41,.8);
 }
 
 .Gear .contener .jauge .back .backgroundGradient::before{
@@ -181,7 +199,7 @@
     object-fit: contain;
     height: 80%;
     width: 80%;
-    border-radius: 20px;
+    border-radius: 40%;
     filter: none
 }
 
@@ -211,47 +229,3 @@
     margin-top: -7vh;
     font-size: 2.5vh;
 }
-
-.Gear .categorie.active .collapse {
-    margin: 2vh;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    height: 2vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: -0.2vw -0.2vw .4vw rgba(255,255,255,0.45), .2vw .2vw .4vw rgba(94,104,121,0.3);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    opacity: 1;
-    transition: .7s;
-}
-
-.Gear .categorie .collapse {
-    width: 0%;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0;
-    transition: .7s;
-}
-
-.arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-    height: 0;
-    transition: .5s;
-}
-
-.up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-}
-
-.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-}
-

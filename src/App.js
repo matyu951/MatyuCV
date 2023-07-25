@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Part/Header/Header';
 import Road from './Part/Road/Road';
 import Gear from './Part/Gear/Gear';
+import Hobbies from './Part/Hobbies/Hobbies';
 
 function App() {
   const [scrollTop, setScrollTop] = useState(0);
@@ -65,6 +66,7 @@ function App() {
       <Road scrolling={scrollTop} />
       <div style={{height: '10vh'}} />
       <Gear scrolling={scrollTop} />
+      <Hobbies scrolling={scrollTop} />
       <div className='WIP'> WIP </div>
     </div>
   );

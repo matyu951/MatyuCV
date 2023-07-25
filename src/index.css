@@ -16,12 +16,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-global);
-  font-size: calc(10px + 1.5vw);
+  font-size: 2vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.title {
+  font-size: 2.5vh;
 }
 
 .WIP {
@@ -32,4 +36,66 @@ code {
   font-size: 25vh;
   font-family:'Times New Roman', Times, serif;
   text-decoration-line: overline;
+}
+
+@keyframes appear-left {
+  0% {
+    transform: translate(-400%, 0) scale(0) ;
+  }
+  50% {
+    transform: translate(-200%, 0) scale(0) ;
+  }
+  100% {
+    transform: translate(0%, 0) scale(1) ;
+  }
+}
+
+@keyframes desappear-right {
+  0% {
+    transform: translate(0%, 0) scale(1) ;
+  }
+  50% {
+    transform: translate(200%, 0) scale(0) ;
+  }
+  100% {
+    transform: translate(400%, 0) scale(0) ;
+  }
+}
+
+@keyframes transition-bounce {
+  0% {
+    transform: scale(1) rotateX(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0) rotateX(180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotateX(360deg);
+    opacity: 1;
+  }
+}
+
+.transitionbounce {
+  animation: transition-bounce .8s cubic-bezier(.47,1.5,.41,.8);
+}
+
+@keyframes transition-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0vh);
+    opacity: 1;
+  }
+}
+
+.transitionLeft {
+  animation: transition-left .8s cubic-bezier(.47,1.5,.41,.8);
 }

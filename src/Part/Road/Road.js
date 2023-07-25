@@ -7,7 +7,7 @@ function Road(props) {
 
     var steps = [
         {date: "2018 - 2020", title: "BTS", txt: "BTS SIO (Service Informatique aux Organisation), réalisé suite à un bac pro GA (Gestion et Administration), on peut appeler ça une reconversion !"},
-        {date: "2020 - 2021", title: "Licence en alternance", txt: "Licence TQL (Test et Qualité Logiciel) réalisé en alternance dans l'entreprise Hipay en tant que QA junior (Quality Analyst junior)"},
+        {date: "2020 - 2021", title: "Licence", txt: "Licence TQL (Test et Qualité Logiciel) réalisé en alternance dans l'entreprise Hipay en tant que QA junior (Quality Analyst junior)"},
         {date: "2021 - ajd", title: "CDI Hipay", txt: "CDI signé chez Hipay SAS suite à ma formation en alternance, une opportunité d'embauche si tôt ça ne se refuse pas"},
     ]
 
