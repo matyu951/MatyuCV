@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Header.css';
+import { act } from 'react-dom/test-utils';
 
 function Header() {
 
@@ -12,6 +13,25 @@ function Header() {
           }, 700);
           console.log('now')
     }, [])
+
+    const [cligne, setCligne] = useState(true);
+
+    useEffect(() => {
+            var popiere = document.querySelector(".popiere")
+            popiere.style.animation = "cligne .4s"
+            
+            var delanim = setInterval(() => {
+                popiere.style.animation = "none"
+            }, 410);
+
+            var rand = Math.floor(Math.random() * 5000);
+            var actu = setInterval(() => {
+                setCligne(!cligne)
+            }, rand + 410);
+
+            return () => {clearInterval(delanim); clearInterval(actu)}
+    }, [cligne])
+
 
   return (
     <div className={active ? "Header active" : "Header"} >

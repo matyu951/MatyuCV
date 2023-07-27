@@ -138,10 +138,6 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: .5s;
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
-    animation: cligne 100s;
-    animation-iteration-count: infinite;
 }
 
 .oeuil .popiere .pupille {
@@ -155,112 +151,13 @@
 
 /* très moche mais ça passe */
 @keyframes cligne {
-    1%{
+    0%{
         height: 7vh;
     }
-    1.5% {
+    50% {
         height: 0vh;
     }
-    2% {
-        height: 7vh;
-    }
-    9%{
-        height: 7vh;
-    }
-    9.5% {
-        height: 0vh;
-    }
-    10% {
-        height: 7vh;
-    }
-    15%{
-        height: 7vh;
-    }
-    15.5% {
-        height: 0vh;
-    }
-    16% {
-        height: 7vh;
-    }
-    23%{
-        height: 7vh;
-    }
-    23.5% {
-        height: 0vh;
-    }
-    24% {
-        height: 7vh;
-    }
-    34%{
-        height: 7vh;
-    }
-    34.5% {
-        height: 0vh;
-    }
-    35% {
-        height: 7vh;
-    }
-    42%{
-        height: 7vh;
-    }
-    42.5% {
-        height: 0vh;
-    }
-    43% {
-        height: 7vh;
-    }
-    47%{
-        height: 7vh;
-    }
-    47.5% {
-        height: 0vh;
-    }
-    48% {
-        height: 7vh;
-    }
-    50%{
-        height: 7vh;
-    }
-    50.5% {
-        height: 0vh;
-    }
-    51% {
-        height: 7vh;
-    }
-    59%{
-        height: 7vh;
-    }
-    59.5% {
-        height: 0vh;
-    }
-    60% {
-        height: 7vh;
-    }
-    66%{
-        height: 7vh;
-    }
-    68.5% {
-        height: 1.5vh;
-    }
-    71% {
-        height: 7vh;
-    }
-    72%{
-        height: 7vh;
-    }
-    72.5% {
-        height: 0vh;
-    }
-    73% {
-        height: 7vh;
-    }
-    88%{
-        height: 7vh;
-    }
-    88.5% {
-        height: 0vh;
-    }
-    89% {
+    100% {
         height: 7vh;
     }
 }
