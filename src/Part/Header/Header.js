@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Header.css';
-import { act } from 'react-dom/test-utils';
 
-function Header() {
+function Header(props) {
 
     const [active, setActive] = useState(false);
 
@@ -34,25 +33,27 @@ function Header() {
 
 
   return (
-    <div className={active ? "Header active" : "Header"} >
-        <div id="layer-1" >
-            <div className='bubble m' />
-            <div className='bubble s' />
-        </div>
-        <div id="layer-2" >
-            <div className='bubble m'/>
-        </div>
-        <div id="layer-3" >
-            <div className='bubble s' />
-            <div className='bubble m' />
-            <div className='oeuil'>
-                <div className='popiere'>
-                    <div className='pupille' id='pupille' />
-                </div>
+    <>
+        <div className='oeuil'style={window.scrollY!==0 ? {top: window.scrollY+(window.innerHeight/100*7), right: "9vh"} : {} } onClick={() => props.setMenu()}>
+            <div className='popiere'>
+                <div className='pupille' id='pupille' />
             </div>
-            <div className='name'>Berruer Mathis</div>
         </div>
-    </div>
+        <div className={active ? "Header active" : "Header"} >
+            <div id="layer-1" >
+                <div className='bubble m' />
+                <div className='bubble s' />
+            </div>
+            <div id="layer-2" >
+                <div className='bubble m'/>
+            </div>
+            <div id="layer-3" >
+                <div className='bubble s' />
+                <div className='bubble m' />
+                <div className='name'>Berruer Mathis</div>
+            </div>
+        </div>
+    </>
   );
 }
 

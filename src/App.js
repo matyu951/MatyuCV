@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Header from './Part/Header/Header';
 import Road from './Part/Road/Road';
@@ -7,6 +7,9 @@ import Hobbies from './Part/Hobbies/Hobbies';
 
 function App() {
   const [scrollTop, setScrollTop] = useState(0);
+  const [menuActive, setMenuActive] = useState(false);
+
+  const prevScrollTopRef = useRef(scrollTop);
 
   useEffect(() => {
     const handleScroll = (event) => {
@@ -19,6 +22,39 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // use effect du parallax des boules au scroll ==========> WIP
+  // useEffect(() => {
+
+  //   var layerOne = document.querySelectorAll('#layer-1'),
+  //       layerTwo = document.querySelectorAll('#layer-2'),
+  //       layerThree = document.querySelectorAll('#layer-3');
+    
+  //       const scrollDiff = scrollTop - prevScrollTopRef.current;
+
+  //     // console.log(scrollTop)
+  //         // let bubleTop = 0
+  //     for(let layer of layerOne) {
+  //       for(let buble of layer.children){
+  //         let bubleTop = parseFloat(window.getComputedStyle(buble).getPropertyValue('top'))
+  //         console.log((bubleTop + (scrollTop+1)/10) + "px")
+  //         buble.style.top = (scrollDiff/100) + "%"
+  //       }
+  //     }
+  //     for(let layer of layerTwo) {
+  //       for(let buble of layer.children){
+  //         let bubleTop = parseFloat(window.getComputedStyle(buble).getPropertyValue('top'))
+  //         buble.style.top = (scrollDiff/100) + "%"
+  //       }
+  //     }
+  //     for(let layer of layerThree) {
+  //       for(let buble of layer.children){
+  //         let bubleTop = parseFloat(window.getComputedStyle(buble).getPropertyValue('top'))
+  //         buble.style.top = (scrollDiff/100) + "%"
+  //       }
+  //     }
+
+  // }, [scrollTop]);
 
 
   const mouseParallaxEffect = (e) => {
@@ -60,11 +96,22 @@ function App() {
     }
   }
 
+  const coordToScrollTo = (selector) => {
+    setMenuActive(!menuActive)
+    let coord = document.querySelector(selector).getBoundingClientRect();
+    return coord.top + window.scrollY
+  }
+
   return (
     <div className="App" onMouseMove={(e) => mouseParallaxEffect(e)} >
-      <Header />
+      <div className='menu'>
+        <button style={menuActive ? {bottom: "-10vh", opacity: 1} : {}} className='item' onClick={() => window.scroll({top: coordToScrollTo(".App"), behavior: 'smooth'})}></button>
+        <button style={menuActive ? {bottom: "-18vh", opacity: 1} : {}} className='item' onClick={() => window.scroll({top: coordToScrollTo(".Road")-100, behavior: 'smooth'})}></button>
+        <button style={menuActive ? {bottom: "-26vh", opacity: 1} : {}} className='item' onClick={() => window.scroll({top: coordToScrollTo(".Gear"), behavior: 'smooth'})}></button>
+        <button style={menuActive ? {bottom: "-34vh", opacity: 1} : {}} className='item' onClick={() => window.scroll({top: coordToScrollTo(".Hobbies"), behavior: 'smooth'})}></button>
+      </div>
+      <Header scrolling={scrollTop} setMenu={() => setMenuActive(!menuActive)} />
       <Road scrolling={scrollTop} />
-      <div style={{height: '10vh'}} />
       <Gear scrolling={scrollTop} />
       <Hobbies scrolling={scrollTop} />
       <div className='WIP'> WIP </div>

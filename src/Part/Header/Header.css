@@ -76,6 +76,7 @@
 .bubble {
     position: absolute;
     border-radius: 50%;
+    top: 0;
     left: -5%;
 }
 
@@ -108,25 +109,20 @@
 }
 
 .oeuil {
+    z-index: 10;
     position: absolute;
     display: flex;
     height: 11vh;
     width: 15vh;
+    top: 6vh;
+    right: 9vh;
     border-radius: 100% / 100%;
+    transform: translate(50%, -50%);
     background-color: brown;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-}
-
-#layer-3 .oeuil{
-    left: -20%;
-    top: 15%;
-    transition: left .3s;
-}
-
-.active #layer-3 .oeuil{
-    left: 50%;
+    cursor: pointer;
 }
 
 .oeuil .popiere {

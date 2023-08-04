@@ -83,11 +83,7 @@
 
 .Gear .contener.back {
     transform: scale(.8);
-    transition: .5s;
-}
-
-.Gear .contener.mid {
-    transform: scale(1);
+    opacity: .3;
     transition: .5s;
 }
 

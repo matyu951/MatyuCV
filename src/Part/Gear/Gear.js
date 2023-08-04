@@ -6,7 +6,7 @@ function Gear(props) {
 
   const [update, setUpdate] = useState(0)
   
-  const trigger = window.screen.height*0.60
+  const trigger = window.screen.height*0.75
 
     var steps = {
         languages: [
@@ -63,8 +63,8 @@ function Gear(props) {
             JaugeRight = contenerJauge[cont].getBoundingClientRect().right + jaugesContener.left,
             OnePercentTrigger = window.innerWidth / 100
 
-            console.log(jaugesContener.right + ' right')
-            console.log(jaugesContener.left + ' left')
+            // console.log(jaugesContener.right + ' right')
+            // console.log(jaugesContener.left + ' left')
 
             if(JaugeRight > OnePercentTrigger*50+jaugesContener.left && JaugeLeft < OnePercentTrigger*50+jaugesContener.left) {
               contenerJauge[cont].classList.remove('back')
@@ -131,7 +131,7 @@ function Gear(props) {
     }
 
   return (
-    <div className="Gear" style={{height: `${60*Object.keys(steps).length}vh`}}>
+    <div className="Gear" style={{height: `${65*Object.keys(steps).length}vh`}}>
       {Categorie("languages", "languages")}
       {Categorie("techno", "techno/Libs")}
       {Categorie("outil", "outil/Logiciel")}

@@ -3,7 +3,7 @@ import './Hobbies.css';
 
 function Hobbies(props) {
     
-    const trigger = window.screen.height*0.80
+    const trigger = window.screen.height*0.90
     
     const [actualIndex, setActualIndex] = useState(0);
     const [isTogglable, setIsTogglable] = useState(true);
